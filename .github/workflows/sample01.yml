@@ -10,9 +10,13 @@ jobs:
       - run: echo 'Hello'
       - run: pwsh -File generate_name.ps1
   job2:
-    needs: 
-      - job1
     runs-on: ubuntu-latest
     steps:
       - run: sleep 3
-
+  job3:
+    needs: 
+      - job1
+      - job2
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 3
